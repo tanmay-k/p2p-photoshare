@@ -31,10 +31,12 @@ var cancelImage = function()	{
 var createSite = async function()	{
 	var userName = document.querySelector('#user-name').value
 	var aboutUser = document.querySelector('#about-user').value;
+	var publicKeyOfTemplate = await DatArchive.resolveName('dat://p2p-usertemplate.hashbase.io');
+	var templateURL = `dat://${publicKeyOfTemplate}`;
 
 	try {
-		userArchive = await DatArchive.fork('dat://890fedf92e778d82fa8312322195b60b890a6f83096e39a0897d542a0c3a44fe', {
-	  		title: 'P2p-ImageShare user: ' + userName,
+		userArchive = await DatArchive.fork(templateURL, {
+	  		title: 'P2p-Photo Share user: ' + userName,
 	  		description: 'Your personal Image Sharing Portal on dat protocol',
 	  		prompt: true
 		});
@@ -72,12 +74,15 @@ var createSite = async function()	{
 
 		prof = JSON.stringify(profile);
 		await userArchive.writeFile('/profile.json',prof);
+
+		await userArchive.unlink('/posts/albums/.empty');
+		await userArchive.unlink('/posts/images/.empty');
 	} catch (e) {
 		console.log(e);
 	} finally {
 	}
 
-	window.location = userArchive.url;
+	setTimeout(function(){window.location = userArchive.url;},500);
 };
 
 var getNameAndExtension = function(fileName)	{

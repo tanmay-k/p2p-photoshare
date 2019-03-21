@@ -30,7 +30,7 @@ class NavbarElement extends HTMLElement {
 			<a class="navbar-brand" href="/">Image Sharing Portal</a>
 
 			<ul class="navbar-nav">
-				${renderNavLink('dat://7d041aa9700cce29b7ece95b29498c88e8961d5ac16d0f926a92c8ad4e39e794/about/aboutDat.html','About DAT')}
+				${renderNavLink('/about/aboutDat.html','About DAT')}
 			</ul>
 		</nav>
 

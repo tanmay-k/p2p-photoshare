@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>P2P-Image Share</title>
+		<title>P2P-Photo Share</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,7 +40,7 @@
 							<h1>Create Profile</h1>
 		  						<div class="media p-3">
 									<label for="avatar">
-										<img id="avatar-img" src="dat://7d041aa9700cce29b7ece95b29498c88e8961d5ac16d0f926a92c8ad4e39e794/avatar.png" alt="" class="mr-3 rounded-circle" style="width:60px;height:60px" data-toggle="tooltip,modal" title="Upload your photo">
+										<img id="avatar-img" src="/avatar.png" alt="" class="mr-3 rounded-circle" style="width:60px;height:60px" data-toggle="tooltip,modal" title="Upload your photo">
 									</label>
 									<input type="file" style="visibility:hidden" id="avatar" name="user-avatar" accept="image/*" data-toggle="modal" data-target="#change-dp-modal">
 		  						</div>
@@ -68,7 +68,7 @@
 
 							<form class="form" enctype="multipart/formdata">
 								<label for="user-name" class="mr-sm-2">Your Name:</label>
-								<input type="text" class="form-control mb-2 mr-sm-2" id="user-name" placeholder="" required>
+								<input type="text" class="form-control mb-2 mr-sm-2" id="user-name" pattern="[a-zA-Z]{50}" placeholder="" required>
 
 								<label for="about-user" class="mr-sm-2">Write something about yourself:</label>
 								<textarea id="about-user" class="form-control mb-2 mr-sm-2"></textarea>
