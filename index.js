@@ -82,7 +82,7 @@ var createSite = async function()	{
 	} finally {
 	}
 
-	setTimeout(function(){window.location = userArchive.url;},500);
+	setTimeout(function(){window.location = userArchive.url;},2000);
 };
 
 var getNameAndExtension = function(fileName)	{
@@ -90,7 +90,26 @@ var getNameAndExtension = function(fileName)	{
 	return extn;
 }
 
+var validateName = function(event)	{
+	var btn = document.querySelector('#createSiteBtn');
+	if( event.target.value === "" )	{
+		btn.disabled = true;
+		btn.title = "Please enter your name!";
+		return;
+	}
+
+	if( event.target.value.match(/\d+/g) )	{
+		btn.disabled = true;
+		btn.title = "Name should not contain any numbers!";
+		return;
+	}
+
+	btn.disabled = false;
+	btn.title = "";
+}
+
 document.querySelector('input[type="file"]').addEventListener('change', uploadImage);
+document.querySelector('input[type="text"]').addEventListener('input', validateName);
 document.querySelector('#acceptBtn').addEventListener('click',uploadProfilePhoto);
 document.querySelector('#cancelBtn').addEventListener('click',cancelImage);
 document.querySelector('#createSiteBtn').addEventListener('click',createSite);

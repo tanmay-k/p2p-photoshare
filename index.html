@@ -68,11 +68,11 @@
 
 							<form class="form" enctype="multipart/formdata">
 								<label for="user-name" class="mr-sm-2">Your Name:</label>
-								<input type="text" class="form-control mb-2 mr-sm-2" id="user-name" pattern="[a-zA-Z]{50}" placeholder="" required>
+								<input type="text" class="form-control mb-2 mr-sm-2" id="user-name" pattern="[a-zA-Z ]{50}" placeholder="" required>
 
 								<label for="about-user" class="mr-sm-2">Write something about yourself:</label>
 								<textarea id="about-user" class="form-control mb-2 mr-sm-2"></textarea>
-								<button type="button" id="createSiteBtn" class="btn btn-primary float-right">Create Site</button>
+								<button type="button" id="createSiteBtn" class="btn btn-primary float-right" data-toggle="tooltip" title="Please enter your name!" disabled>Create Site</button>
 							</form>
 						</div>
 					</div>
