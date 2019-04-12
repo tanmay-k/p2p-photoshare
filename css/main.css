@@ -1,6 +1,16 @@
 .contents	{
 	margin-top: 4%;
 }
+
+@font-face {
+	font-family: appNameFont;
+	src: url("/fonts/fscript.ttf");
+}
+
+.logo	{
+	font-weight: bolder;
+	font-style: italic;
+}
 /*
 .tooltip {
   position: relative;

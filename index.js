@@ -31,12 +31,12 @@ var cancelImage = function()	{
 var createSite = async function()	{
 	var userName = document.querySelector('#user-name').value
 	var aboutUser = document.querySelector('#about-user').value;
-	var publicKeyOfTemplate = await DatArchive.resolveName('dat://p2p-usertemplate.hashbase.io');
+	var publicKeyOfTemplate = await DatArchive.resolveName('dat://usertemplate.hashbase.io');
 	var templateURL = `dat://${publicKeyOfTemplate}`;
 
 	try {
 		userArchive = await DatArchive.fork(templateURL, {
-	  		title: 'P2p-Photo Share user: ' + userName,
+	  		title: 'pixfly user: ' + userName,
 	  		description: 'Your personal Image Sharing Portal on dat protocol',
 	  		prompt: true
 		});
@@ -78,7 +78,9 @@ var createSite = async function()	{
 		await userArchive.unlink('/posts/albums/.empty');
 		await userArchive.unlink('/posts/images/.empty');
 	} catch (e) {
+		//error handling
 		console.log(e);
+
 	} finally {
 	}
 
