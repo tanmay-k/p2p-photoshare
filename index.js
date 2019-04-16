@@ -31,13 +31,15 @@ var cancelImage = function()	{
 var createSite = async function()	{
 	var userName = document.querySelector('#user-name').value
 	var aboutUser = document.querySelector('#about-user').value;
-	var publicKeyOfTemplate = await DatArchive.resolveName('dat://usertemplate.hashbase.io');
-	var templateURL = `dat://${publicKeyOfTemplate}`;
+	//var publicKeyOfTemplate = await DatArchive.resolveName('dat://usertemp.hashbase.io');
+	//var templateURL = `dat://${publicKeyOfTemplate}`;
 
+	//Profile template link
+	var templateURL = "dat://5f9e1710a2d5c6f9a7e4596be8bd2b9b4b8eadde72806abbd4b693dc8da697f3";
 	try {
 		userArchive = await DatArchive.fork(templateURL, {
 	  		title: 'pixfly user: ' + userName,
-	  		description: 'Your personal Image Sharing Portal on dat protocol',
+	  		description: 'Your personal Image Sharing Portal on DAT Protocol',
 	  		prompt: true
 		});
 
@@ -75,8 +77,8 @@ var createSite = async function()	{
 		prof = JSON.stringify(profile);
 		await userArchive.writeFile('/profile.json',prof);
 
-		await userArchive.unlink('/posts/albums/.empty');
-		await userArchive.unlink('/posts/images/.empty');
+		//await userArchive.unlink('/posts/albums/.empty');
+		//await userArchive.unlink('/posts/images/.empty');
 	} catch (e) {
 		//error handling
 		console.log(e);
